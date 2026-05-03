@@ -1,51 +1,60 @@
 #define GLFW_INCLUDE_NONE
-#include "Window.h"
+#include <GLFW/glfw3.h>
 #include <glad/gl.h>
+#include "Window.h"
 #include <spdlog/spdlog.h>
-
-namespace game {
-	window::win	dow(int width, int height, const std::string& title) : width_(width), height_(height), handle_(nullptr) {
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-		glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT,GL_TRUE);
-
-		handle_ = glfwCreateWindow(width_, height_, title.c_str(), NULL, NULL);
-		
-		if (!handle_) {
-			spdlog::error("Can't create window \n");
-		}
-
-		glfwMakeContextCurrent(handle_);
-	}
-
-	window::~window() {
-		if (!handle) {
-			glfwDestroyWindow(handle_);
-		}
-	}
-}
 
 static void error_callback(int error, const char* description) {
 	spdlog::error("GLFW Error [{}]: {}", error, description);
 }
 
-int main() {
-	glfwSetErrorCallback(error_callback);
+namespace game {
+	bool window::init() {
+		glfwSetErrorCallback(error_callback);
+		return glfwInit() != GLFW_FALSE;
+	}
 
-	if (!glfwInit()) exit(EXIT_FAILURE);
+	void window::shutdown() {
+		glfwTerminate();
+	}
 
+	window::window(int width, int height, const std::string& title) : width_(width), height_(height), handle_(nullptr) {
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	game::window myWindow(1280, 720, "Voxel Engine");
+		handle_ = glfwCreateWindow(width_, height_, title.c_str(), NULL, NULL);
 
-	if (!myWindow.isOK()) exit(EXIT_FAILURE);
+		if (!handle_) {
+			spdlog::error("Can't create window \n");
+			return;
+		}
 
-	while (!glfwWindowShouldClose(myWindow.getHandle())) {
-		glfwSwapBuffers(myWindow.getHandle());
+		glfwMakeContextCurrent(handle_);
+
+		int version = gladLoadGL((GLADloadfunc)glfwGetProcAddress);
+		if (version == 0) {
+			spdlog::error("Failed to initialize OpenGL context");
+		}
+	}
+
+	window::~window() {
+		if (handle_) {
+			glfwDestroyWindow(handle_);
+		}
+	}
+
+	bool window::shouldClose() const {
+		return glfwWindowShouldClose(handle_);
+	}
+
+	void window::pollEvents() {
 		glfwPollEvents();
 	}
 
-
-	glfwTerminate();
-	return 0;
+	void window::swapBuffers() {
+		glfwSwapBuffers(handle_);
+	}
 }
+
