@@ -4,7 +4,7 @@
 int main() {
 	if (!game::window::init()) return -1;	
 
-	game::window myWindow(1280, 720, "Voxel Engine");
+	game::window myWindow(1920, 1080, "Voxel Engine");
 	if (!myWindow.isOK()) return -1;
 
 	while (!myWindow.shouldClose()) {
