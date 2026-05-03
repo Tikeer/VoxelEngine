@@ -4,7 +4,7 @@
 #include <spdlog/spdlog.h>
 
 namespace game {
-	window::window(int width, int height, const std::string& title) : width_(width), height_(height), handle_(nullptr) {
+	window::win	dow(int width, int height, const std::string& title) : width_(width), height_(height), handle_(nullptr) {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 		glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);

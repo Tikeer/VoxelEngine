@@ -1,6 +1,6 @@
+#pragma once
 #include <GLFW/glfw3.h>
 #include <string>
-#pragma once
 
 
 namespace game {
@@ -15,10 +15,11 @@ namespace game {
 		~window();
 
 		bool isOK() const {
-			return handle != nullptr;
+			return handle_ != nullptr;
 		}
 
 		GLFWwindow* getHandle() {
 			return handle_;
-	};
+		};
+	}
 }
