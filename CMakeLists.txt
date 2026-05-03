@@ -5,7 +5,7 @@ project(VoxelEngine
     DESCRIPTION "A voxel engine built with modern C++ and OpenGL"
     LANGUAGES CXX
 )
-
+	
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -67,7 +67,7 @@ FetchContent_Declare(
     SOURCE_SUBDIR  cmake
 )
 FetchContent_MakeAvailable(glad)
-glad_add_library(glad_gl_core REPRODUCIBLE API gl:core=4.6)
+glad_add_library(glad_gl_core REPRODUCIBLE API gl:core=4.1)
 
 FetchContent_Declare(
     glm
