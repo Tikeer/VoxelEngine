@@ -38,6 +38,11 @@ namespace game {
 		if (version == 0) {
 			Logger::error("Failed to initialize OpenGL context");
 		}
+		int major, minor = 0;
+		glGetIntegerv(GL_MAJOR_VERSION, &major);
+		glGetIntegerv(GL_MINOR_VERSION, &minor);
+		Logger::info("Wersja OpenGL: {}.{}", major, minor);
+
 	}
 
 	window::~window() {
