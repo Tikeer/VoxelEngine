@@ -42,6 +42,7 @@ assets/**/*.cache
 # IDE & editor files
 # Visual Studio / VS Code
 .vs/
+CMakeSettings.json
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
