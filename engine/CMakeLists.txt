@@ -19,7 +19,7 @@ add_library(VoxelEngine STATIC
     src/world/Block.cpp
     src/world/ChunkManager.cpp
     src/world/NoiseGenerator.cpp
-)
+ "include/Logger.h")
 
 target_include_directories(VoxelEngine
     PUBLIC  "${CMAKE_CURRENT_SOURCE_DIR}/include"

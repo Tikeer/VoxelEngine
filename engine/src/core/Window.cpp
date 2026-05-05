@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <glad/gl.h>
 #include "Window.h"
+#include "Logger.h"
 #include <spdlog/spdlog.h>
 
 static void error_callback(int error, const char* description) {
@@ -27,7 +28,7 @@ namespace game {
 		handle_ = glfwCreateWindow(width_, height_, title.c_str(), NULL, NULL);
 
 		if (!handle_) {
-			spdlog::error("Can't create window \n");
+			Logger::error("Can't create window \n");
 			return;
 		}
 
@@ -35,7 +36,7 @@ namespace game {
 
 		int version = gladLoadGL((GLADloadfunc)glfwGetProcAddress);
 		if (version == 0) {
-			spdlog::error("Failed to initialize OpenGL context");
+			Logger::error("Failed to initialize OpenGL context");
 		}
 	}
 
