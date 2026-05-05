@@ -112,10 +112,10 @@ Zadania:
 - [x] Zainicjuj repo GitHub z README.md, LICENSE (MIT), .gitignore
 - [x] Wrzuć CMakeLists.txt (root + engine/ + game/) — pliki wygenerowane
 - [x] Zweryfikuj że FetchContent pobiera: GLFW, GLAD, GLM, spdlog, stb
-- [ ] Stwórz okno z GLFW, kontekst OpenGL 4.1 Core, wydrukuj wersję GL przez Logger
-- [ ] Klasa Logger opakowująca spdlog — każdy moduł loguje przez nią
+- [x] Stwórz okno z GLFW, kontekst OpenGL 4.1 Core, wydrukuj wersję GL przez Logger
+- [x] Klasa Logger opakowująca spdlog — każdy moduł loguje przez nią
 - [x] GitHub Actions CI: build Debug + Release na ubuntu-latest i windows-latest
-- [ ] Pierwszy tag semantyczny: `v0.0.1`
+- [x] Pierwszy tag semantyczny: `v0.0.1`
 
 **CV tip:** Skonfigurowany CI już przy pierwszym commicie = sygnał profesjonalizmu.
 
@@ -240,3 +240,4 @@ Kiedy użytkownik pokazuje kod / pliki:
 - .gitignore wygenerowany
 - GitHub Actions — naprawione.
 - stworzenie okna w GLFW zrobione.
+- biblioteka GLAD nie działa.
