@@ -7,23 +7,46 @@ private:
 	static std::shared_ptr<spdlog::logger> s_SpdLogger;
 
 public:
-	static void info(std::string_view description) {
-		s_SpdLogger->info(description);
+	template<typename... Args>
+	static void info(spdlog::format_string_t<Args...>fmt,Args&&... args) {
+		if (s_SpdLogger) {
+			s_SpdLogger->info(fmt, std::forward<Args>(args)...);
+		}
 	}
-	static void warning(std::string_view description) {
-		s_SpdLogger->warn(description);
+
+	template<typename... Args>
+	static void warning(spdlog::format_string_t<Args...>fmt, Args&&... args) {
+		if (s_SpdLogger) {
+			s_SpdLogger->warn(fmt, std::forward<Args>(args)...);
+		}
 	}
-	static void error(std::string_view description) {
-		s_SpdLogger->error(description);
+
+	template<typename... Args>
+	static void error(spdlog::format_string_t<Args...>fmt, Args&&... args) {
+		if (s_SpdLogger) {
+			s_SpdLogger->error(fmt, std::forward<Args>(args)...);
+		}
 	}
-	static void trace(std::string_view description) {
-		s_SpdLogger->trace(description);
+
+	template<typename... Args>
+	static void trace(spdlog::format_string_t<Args...>fmt, Args&&... args) {
+		if (s_SpdLogger) {
+			s_SpdLogger->trace(fmt, std::forward<Args>(args)...);
+		}
 	}
-	static void debug(std::string_view description) {
-		s_SpdLogger->debug(description);
+
+	template<typename... Args>
+	static void debug(spdlog::format_string_t<Args...>fmt, Args&&... args) {
+		if (s_SpdLogger) {
+			s_SpdLogger->debug(fmt, std::forward<Args>(args)...);
+		}
 	}
-	static void critical(std::string_view description) {
-		s_SpdLogger->critical(description);
+
+	template<typename... Args>
+	static void critical(spdlog::format_string_t<Args...>fmt, Args&&... args) {
+		if (s_SpdLogger) {
+			s_SpdLogger->critical(fmt, std::forward<Args>(args)...);
+		}
 	}
 	static void init() {
 		//tworzenie sinka

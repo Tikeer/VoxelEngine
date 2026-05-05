@@ -1,7 +1,9 @@
 #include <spdlog/spdlog.h>
 #include "Window.h"
+#include "Logger.h"
 
 int main() {
+	Logger::init();
 	if (!game::window::init()) return -1;	
 
 	game::window myWindow(1920, 1080, "Voxel Engine v0.0.1");

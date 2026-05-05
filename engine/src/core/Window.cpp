@@ -6,7 +6,7 @@
 #include <spdlog/spdlog.h>
 
 static void error_callback(int error, const char* description) {
-	spdlog::error("GLFW Error [{}]: {}", error, description);
+	Logger::error("GLFW Error [{}]: {}", error, description);
 }
 
 namespace game {
