@@ -123,7 +123,7 @@ Zadania:
 
 ### FAZA 02 — Core engine
 **Czas:** Tydzień 3–4  
-**Status:** `[ ] Nie rozpoczęto`  
+**Status:** `[x] Nie rozpoczęto`  
 **Wymaga:** Faza 01 ukończona
 
 Zadania:
@@ -240,4 +240,5 @@ Kiedy użytkownik pokazuje kod / pliki:
 - .gitignore wygenerowany
 - GitHub Actions — naprawione.
 - stworzenie okna w GLFW zrobione.
-- biblioteka GLAD nie działa.
+- biblioteka GLAD w IDE niby nie działa ale program .exe działa
+- Faza 01 zakończona.
