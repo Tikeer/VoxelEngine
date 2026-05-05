@@ -106,7 +106,7 @@ ctest --test-dir build
 
 ### FAZA 01 — Fundament projektu
 **Czas:** Tydzień 1–2  
-**Status:** `[x] Rozpoczęto`
+**Status:** `[x] Zakończono`
 
 Zadania:
 - [x] Zainicjuj repo GitHub z README.md, LICENSE (MIT), .gitignore
@@ -123,7 +123,7 @@ Zadania:
 
 ### FAZA 02 — Core engine
 **Czas:** Tydzień 3–4  
-**Status:** `[x] Nie rozpoczęto`  
+**Status:** `[x] Rozpoczęto`  
 **Wymaga:** Faza 01 ukończona
 
 Zadania:
@@ -131,7 +131,7 @@ Zadania:
 - [ ] Klasa `Window` — opakowuje GLFW, obsługa resize, VSync toggle
 - [ ] Prosty Event System (`std::function` / observer pattern)
 - [ ] `InputManager` — klawiatura + mysz przez callbacki GLFW
-- [ ] Klasa `Time` — pomiar FPS, delta time, fixed step accumulator
+- [x] Klasa `Time` — pomiar FPS, delta time, fixed step accumulator
 
 **CV tip:** Fixed timestep + event system to dowód znajomości architektury silników.
 
@@ -239,6 +239,4 @@ Kiedy użytkownik pokazuje kod / pliki:
 - CMakeLists.txt (root + engine + game) wygenerowane
 - .gitignore wygenerowany
 - GitHub Actions — naprawione.
-- stworzenie okna w GLFW zrobione.
-- biblioteka GLAD w IDE niby nie działa ale program .exe działa
 - Faza 01 zakończona.
